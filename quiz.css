@@ -273,7 +273,7 @@ color: #c40094;
     color: rgba(255,255,255,.2);
     font-weight: 600;
     cursor: pointer;
-    pointer-events: none;
+    /* pointer-events: none; */
     transition: .5s;
 }
 .quiz-footer .next-btn:hover {

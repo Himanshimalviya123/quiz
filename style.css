@@ -48,13 +48,15 @@ font-weight: 200;
 #btn1{
     background-color:greenyellow;
     width: 150px;
-    /* display: flex; */
-    /* justify-content: center; */
-    align-items: center;
+    /display: flex; 
+    justify-content: center; 
+    /align-items: center;
     color: #000;
     font-weight: 200;
     padding: 10px;
     margin: 20px;
     cursor: pointer;
-    display: block;
-}
+    display: block; 
+ }  
+
+ 
