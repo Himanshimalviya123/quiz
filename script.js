@@ -1,28 +1,43 @@
 // quiz questions and options
 const quizQuestions = [
   {
-    question: "which is the largest animal in the world??",
-    options: ["blue-whale", "shark", "star fish", "lion"],
+    question: "what does html stand for ?",
+    options: [" A.hypertext markup language", 
+      " B.hyper text multiple language",
+       " C.home text multi language",
+       " D.hyper text multi language"],
     answer: 0
   },
   {
-    question: "What is the capital of France?",
-    options: ["Paris", "London", "Berlin", "Rome"],
+    question: "what does css stand for?",
+    options: [" A.cascading style sheet",
+              " B.cute style sheet",
+              " C.computer style sheet",
+               " D.codehal style sheet"],
     answer: 0
   },
   {
-    question: "Who is the CEO of Tesla?",
-    options: ["Elon Musk", "Jeff Bezos", "Mark Zuckerberg", "Bill Gates"],
+    question: "what does php stand for?",
+    options: [" A.hypertext preprocessor",
+              " B.hometext programming",
+              " C.gypertext programming",
+              " D.programming hypertext preprocessor"],
     answer: 0
   },
   {
-    question: "What is the largest planet in our solar system?",
-    options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
+    question: "what does sql stand for?",
+    options: [" A.structured query language",
+               " B.Strength query language",
+                 " C.stylesheet query language",
+                 " D.science question language"],
     answer: 0
   },
   {
-    question: "where is it situated in kanha kisli national park?",
-    options: ["madhya pradesh", "uttrakhand", "manipuram", "uttarpradesh"],
+    question :"what does xml stand for?",
+    options: ["A.extensible markup language", 
+              "B.explore multiple language",
+                 "C.extra markup language", 
+                 "D.excellent multiple language"],
     answer: 0
   }
 ];
