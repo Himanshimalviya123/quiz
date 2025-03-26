@@ -1,117 +1,78 @@
-const startBtn = document.querySelector('.start-btn');
-const popupInfo = document.querySelector('.popup-info');
-const exitBtn = document.querySelector('.info-btn exit-btn');
-const main = document.querySelector('.main');
-const continueBtn = document.querySelector('.info-btn continue-btn');
-const quizSection = document.querySelector('.quiz-section');
-const quizBox = document.querySelector('.quiz-box');
+/ quiz questions and options
+const quizQuestions = [
+  {
+    question: "What is the capital of France?",
+    options: ["Paris", "London", "Berlin", "Rome"],
+    answer: 0
+  },
+  {
+    question: "Who is the CEO of Tesla?",
+    options: ["Elon Musk", "Jeff Bezos", "Mark Zuckerberg", "Bill Gates"],
+    answer: 0
+  },
+  {
+    question: "What is the largest planet in our solar system?",
+    options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
+    answer: 0
+  }
+];
 
- 
-startBtn.onclick = ()=>{
-    popupInfo.classList.add('active');
-    main.classList.add('active');
+// current question index
+let currentQuestionIndex = 0;
+
+// score
+let score = 0;
+
+//display current question and options
+function displayQuestion() {
+  const questionElement = document.getElementById("question");
+  const optionsElement = document.getElementById("options");
+
+  questionElement.textContent = quizQuestions[currentQuestionIndex].question;
+
+  optionsElement.innerHTML = "";
+  quizQuestions[currentQuestionIndex].options.forEach((option, index) => {
+    const optionElement = document.createElement("li");
+    optionElement.textContent = option;
+    optionElement.addEventListener("click", () => {
+      submitAnswer(index);
+    });
+    optionsElement.appendChild(optionElement);
+  });
 }
 
-//  const start=()=>{
-//     popupInfo.classList.add('active');
-//      main.classList.add('active');
-// }
-// const cont= ()=>{
-//     quizSection.classList.add('active');
-//     popupInfo.classList.remove('active');
-//     main.classList.remove('active');
-//     quizBtn.classList.add('active');
-// }
-// const  exit = ()=>{
-//     popupInfo.classList.remove('active');
-//     main.classList.remove('active');
-// }
-exitBtn.onclick = ()=>{
-    popupInfo.classList.remove('active');
-    main.classList.remove('active');
-}
-continueBtn.onclick = ()=>{
-    quizSection.classList.add('active');
-    popupInfo.classList.remove('active');
-    main.classList.remove('active');
-    quizBtn.classList.add('active');
-    showQuestion(0);
-    questioncounter(1);
-}
-// ==========================================================================
-let questioncount=0;
-let questionnumb=1;
-const nextBtn=document.querySelector('.next-btn');
-nextBtn.onclick =()=>{
-    if(questioncount< questions.length-1){
-        questioncount++;
-        showQuestion(questioncount);
-        questionnumb++;
-        questioncounter(questionnumb);
-    
-    }
-    else{
-        console.log('question completed');
-        
-    }
-}
-const optionList=document.querySelector('.option-list');
+// submit answer and check if correct
+function submitAnswer(answerIndex) {
+  const correctAnswerIndex = quizQuestions[currentQuestionIndex].answer;
+  const resultElement = document.getElementById("result");
 
-
-function showQuestion(index){
-    const questionText=document.querySelector('.question-text');
-    questionText.textContent=`${questions[index].numb}.${questions[index].question}`
-    let optionTag=` <div class="option"><span>${questions[index].options[0]}</span></div>
-    <div class="option"><span>${questions[index].options[1]}</span></div>
-    <div class="option"><span>${questions[index].options[2]}</span></div>
-    <div class="option"><span>${questions[index].options[3]}</span></div>`;
-    optionList.innerHTML=optionTag;
-    const option=document.querySelector('.option');
-    for(Let i=0; i <option.length; i++)
-    {
-        option[i].setAttribute('onclick','optionselected(this)');
-    }
-}
-function optionselected(answer)
-{
-    let userAnswer=answer.textContent;
-    let correctAnswer=questions[questioncount].answer;
-    if(userAnswer==correctAnswer)
-    {
-        console.log('answer is correct');
-        answer.classList.add('correct');
-
-        
-    }
-    else{
-        console.log('answer is wrong');
-        
-    }
-}
-function questioncounter(index){
-    const questionTotal=document.querySelector('.question-tatal')
+  if (answerIndex === correctAnswerIndex) {
+    resultElement.textContent = "Correct!";
+    score++;
+  } else {
+    resultElement.textContent = `Incorrect. The correct answer is ${quizQuestions[currentQuestionIndex].options[correctAnswerIndex]}.`;
 }
 
+// update score
+document.getElementById("score").textContent = `Score: ${score}/${currentQuestionIndex + 1}`;
 
+// move to next question after 2 seconds
+setTimeout(() => {
+  currentQuestionIndex++;
+  if (currentQuestionIndex >= quizQuestions.length) {
+    // display final result
+    resultElement.textContent = "Quiz complete!";
+    document.getElementById("submit-btn").style.display = "none";
+  } else {
+    displayQuestion();
+  }
+}, 2000);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// start quiz
+displayQuestion();
+// submit button event listener
+document.getElementById("submit-btn").addEventListener("click", () => {
+    submitAnswer();
+  });
+  

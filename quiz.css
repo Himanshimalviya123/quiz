@@ -1,4 +1,4 @@
-*{
+ *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -16,14 +16,14 @@ body{
     width: 100%;
     padding: 20px 10%;
     /* background:seagreen; */
-    background:transparent;
+     background:transparent;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-}
-.logo{
+} 
+ .logo{
     font-size: 32px;
     color: #fff;
     text-decoration: none;
@@ -46,12 +46,13 @@ transition: .3s;
 .main{
    min-height:100vh; 
    background-color: purple;
-   /* background-size: cover; */
-   background-position: center;
+    background-size: cover; 
+    background-position: center;
    transition: .3s ease;
    pointer-events: auto;
 }
 .main .active {
+
     filter:blur(15px);
     pointer-events:none;
 }
@@ -107,6 +108,7 @@ background: #09001d;
 box-shadow: none;
 }
 .popup-info{
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -120,7 +122,7 @@ box-shadow: none;
     transition: 3s ease;
 }
 .popup-info .active {
-    opacity:1;
+    opacity:1; 
     pointer-events: auto;
     transform: translate(-50%,-50%) scale(1);
 
@@ -142,7 +144,7 @@ color: #c40094;
     align-items: center;
     border-top:10px ;
     padding: 15px 0 7px;
-}
+}  
 .popup-info .btn-group .info-btn {
     display: inline-flex;
     justify-content: center;
@@ -178,15 +180,15 @@ color: #c40094;
     position: relative;
     left: -50%;
     /* left: 0; */
-    display: flex;
+     display: flex;
     justify-content: center;
     align-items: center;
     background: #09001d;
     transition: .8s ease-in-out;
     transition-delay:-25s;
     z-index: 100;
-}
-.quiz-section .active {
+} 
+ .quiz-section .active {
     left: 0;
 }
 .quiz-section .quiz-box {
@@ -273,10 +275,27 @@ color: #c40094;
     color: rgba(255,255,255,.2);
     font-weight: 600;
     cursor: pointer;
-    /* pointer-events: none; */
-    transition: .5s;
+     pointer-events: none; 
+     transition: .5s;
 }
 .quiz-footer .next-btn:hover {
     background: #c40094;
     border-color: #c40094;
-}
+}   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
